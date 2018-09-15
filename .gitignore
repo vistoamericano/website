@@ -1,44 +1,21 @@
-# Composer
-.composer
-vendor/*
-!*/vendor/*
+.DS_Store
+.settings/
+.sass-cache/
+.project
+.idea
+npm-debug.log*
+yarn-error.log
+yarn.lock
+style/.sass-cache/
+stats.json
 
-# Sass
-.sass-cache
-
-# Grav Specific
-backup/*
-!backup/.*
-cache/*
-!cache/.*
-assets/*
-!assets/.*
-logs/*
-!logs/.*
-images/*
-!images/.*
-user/accounts/*
-!user/accounts/.*
-user/data/*
-!user/data/.*
-user/plugins/*
-!user/plugins/.*
-user/themes/*
-!user/themes/.*
-user/localhost/config/security.yaml
-user/config/security.yaml
-
-# OS Generated
-.DS_Store*
-ehthumbs.db
-Icon?
-Thumbs.db
-*.swp
-
-# phpstorm
-.idea/*
-
-tests/_output/*
-tests/_support/_generated/*
-tests/cache/*
-tests/error.log
+img/
+images/
+private/
+vendor/
+coverage/
+node_modules/
+bower_components/
+grapesjs-*.tgz
+_index.html
+docs/.vuepress/dist
