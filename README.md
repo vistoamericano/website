@@ -1,73 +1,99 @@
-[Bludit](https://www.bludit.com/)
-================================
-**Simple**, **Fast** and **Flexible** CMS
+# enduro.js
 
-Bludit is a web application to build your own **website** or **blog** in seconds, it's completely **free and open source**. Bludit uses files in JSON format to store the content, you don't need to install or configure a database. You only need a web server with PHP support.
+[![Join the chat at https://gitter.im/Enduro-js/Lobby](https://badges.gitter.im/Enduro-js/Lobby.svg)](https://gitter.im/Enduro-js/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm version](https://badge.fury.io/js/enduro.svg)](https://badge.fury.io/js/enduro)
+[![npm](https://img.shields.io/npm/dm/enduro.svg?maxAge=2592000)](https://www.npmjs.com/package/enduro)
+[![Build Status](https://travis-ci.org/Gottwik/Enduro.svg?branch=master)](https://travis-ci.org/Gottwik/Enduro)
+[![Coverage Status](https://coveralls.io/repos/github/Gottwik/Enduro/badge.svg?branch=master)](https://coveralls.io/github/Gottwik/Enduro?branch=master)
+[![Code Climate](https://codeclimate.com/github/Gottwik/Enduro/badges/gpa.svg)](https://codeclimate.com/github/Gottwik/Enduro)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Gottwik/Enduro/master/License.md)
 
-Bludit is a **Flat-File** CMS.
 
-Bludit supports **Markdown** and **HTML code** for the content.
+Enduro is minimalistic, lean & mean, node.js cms. See more at [enduro.js website](http://www.endurojs.com/)
 
-- [Plugins](https://plugins.bludit.com)
-- [Themes](https://themes.bludit.com)
-- [Documentation](https://docs.bludit.com)
-- Help and Support [Forum](https://forum.bludit.org) and [Chat](https://gitter.im/bludit/support)
+**Other repositories:** Enduro • [samples](https://github.com/Gottwik/enduro_samples) • [Enduro admin](https://github.com/Gottwik/enduro_admin) • [endurojs.com site](https://github.com/Gottwik/enduro_website)
 
-[![Bludit PRO](https://img.shields.io/badge/Bludit-PRO-blue.svg)](https://pro.bludit.com/)
+![enduro admin](http://i.imgur.com/3TdMJlY.jpg)
+![enduro admin](http://i.imgur.com/4PHp7me.jpg)
+![enduro admin](http://i.imgur.com/4OheTyl.jpg)
+![enduro admin](http://i.imgur.com/0IpLtzU.jpg)
 
-Social Networks
----------------
+## Documentation
+Complete, structured documentation is available here [http://www.endurojs.com/docs](http://www.endurojs.com/docs)
 
-- [Twitter](https://twitter.com/bludit)
-- [Facebook](https://www.facebook.com/bluditcms)
-- [Google+](https://plus.google.com/+Bluditcms)
-- [Youtube](https://www.youtube.com/channel/UCuLu0Z_CHBsTiYTDz129x9Q?view_as=subscriber)
+### JS Transpilers
 
-Requirements
-------------
+If you'd like to transpile your static js assets (under `assets/js/`) you can do so. Simply, set a `babel` object in your config file. This uses the same babel config specified here: https://babeljs.io/docs/usage/api/#options
 
-You just need a web server with PHP support.
+``` json
+{
+    "babel": {
+        "presets": ["es2015"]
+    }
+}
+```
 
-- PHP v5.3 or higher.
-- PHP [mbstring](http://php.net/manual/en/book.mbstring.php) module for full UTF-8 support.
-- PHP [gd](http://php.net/manual/en/book.image.php) module for image processing.
-- PHP [dom](http://php.net/manual/en/book.dom.php) module for DOM manipulation.
-- PHP [json](http://php.net/manual/en/book.json.php) module for JSON manipulation.
-- Supported web servers:
-   * Bludit supports almost every web server
-   * PHP Built-in web server (`php -S localhost:8000`)
+Remember also to add whatever preset you'd like to use using npm:
 
-Installation Guide
-------------------
+```
+npm install --save-dev babel-preset-es2015
+```
 
-1. Download the latest version from the official page. [Bludit.com](https://www.bludit.com)
-2. Extract the zip file into a directory like `bludit`.
-3. Upload the directory `bludit` to your web server or hosting.
-4. Visit your domain https://example.com/bludit/
-5. Follow the Bludit Installer to configure the website.
+### CSS Pre-processors
 
-Docker Image
-------------
-Bludit provides an official Docker image.
-- https://hub.docker.com/r/bludit/docker/
+Instead of using SASS, you can use the LESS pre-processor instead. To do this, set a `less` object in your config file. This consists of a `paths` array which is the same as one defined here: http://lesscss.org/#using-less
 
-Backers
--------
-Become a **Backer** and support Bludit with a monthly contribution to help us continue development.
-- [Become a Backer](https://www.patreon.com/bePatron?c=921115&rid=2458859)
+``` json
+{
+    "less": {
+        "paths": []
+    }
+}
+```
 
-Sponsors
---------
-Become a **Sponsor** and support Bludit with a monthly contribution to help us continue development.
+Once that is set, simply add a `.less` file in your `assets/css` folder.
 
-[![Become a Sponsor](https://img.shields.io/badge/Become%20a%20Sponsor--green.svg)](https://www.patreon.com/bePatron?c=921115&rid=2458860)
+For STYLUS (http://stylus-lang.com/) support simple set `stylus` to true in your config file:
 
-- <a href="https://www.patreon.com/clickwork" target="_blank">Clickwork</a>
-- <a href="https://www.patreon.com/user/creators?u=10331784" target="_blank">KreativMind</a>
-- <a href="https://www.patreon.com/pinguinsreisende" target="_blank">Gerriet Selent</a>
-- <a href="https://www.patreon.com/user/creators?u=12261033" target="_blank">Jan Rippl</a>
-- <a href="https://www.patreon.com/user/creators?u=9828204" target="_blank">Wesleigh Walker</a>
+``` json
+{
+    "stylus": true
+}
+```
+now all `.styl` files in your `assets/css` folder are used to generate the css.
 
-License
--------
-Bludit is open source software licensed under the [MIT license](https://tldrlegal.com/license/mit-license).
+## Getting started
+
+![enduro create](http://i.imgur.com/DtxhA7z.gif)
+
+1. Make sure you have node.js installed. Grab it here if you don't: [nodejs installer](https://nodejs.org/en/download/).
+1. Run `npm install enduro -g` in your terminal. This will install enduro.
+1. Run `enduro create myproject`. This will create new folder /myproject with the enduro project
+1. Go in the newly created folder by running `cd myproject`.
+1. Start enduro in development mode by running simply `enduro`. Browser window should open with the website running.
+1. Done!
+2. Also, **Admin** interface is accessible at `localhost:5000`. Add admin user by running `enduro admin add username password`.
+
+# Developing enduro
+I welcome you to develop enduro.js. Follow these guides to get you started quickly:
+
+1. clone enduro repository
+2. cd into enduro's directory
+3. run `npm link`
+4. now you can develop enduro
+
+
+## Writing enduro tests
+1. enduro has mocha tests
+2. add your tests in the /test directory
+2. run all tests just by running `npm test`
+
+## Developing enduro admin
+1. I decided to decouple admin interface from enduro to make things cleaner
+2. enduro admin is built using enduro ( duh ;-) )
+2. clone enduro_admin's git repo: https://github.com/Gottwik/Enduro_admin
+3. cd into enduro's directory
+4. run `npm link ../enduro_admin` or wherever you cloned the enduro_admin to
+5. run enduro on enduro_admin by `enduro -nr -noadmin`
+6. run `enduro` on your project
+7. now you can edit enduro admin's source code and see the change on your project at localhost:5000/admin
